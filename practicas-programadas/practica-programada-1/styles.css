@@ -1,0 +1,203 @@
+/*
+Universidad Fidélitas
+Facultad de Ingeniería
+Ambiente Web Cliente/Servidor
+Código del Curso: SC-502
+Estudiante: Randy Martínez Sandí
+Identificación: 1-1627-0570
+Profesor: Javier Montoya Salazar
+Grupo Virtual: 01
+Campus Universitario: San Pedro
+Cuatrimestre: II
+23 de junio, 2026
+*/
+
+/* Archivo Hoja de Estilos para Práctica Programada 1 */
+
+:root {
+  /* colores miscs */
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  /* colores sectores */
+  --sector-1-gradient: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  --sector-2-gradient: linear-gradient(135deg, #581c87, #8b5cf6);
+  --sector-3-gradient: linear-gradient(135deg, #b45309, #f59e0b);
+  --sector-4-gradient: linear-gradient(135deg, #701a75, #d946ef);
+
+  --sector-4-hover-gradient: linear-gradient(135deg, #064e3b, #10b981);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Outfit', 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-container {
+  max-width: 900px;
+}
+
+.app-title {
+  font-weight: 700;
+  background: linear-gradient(to right, #3b82f6, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.app-subtitle {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.alert-wrapper {
+  min-height: 60px;
+}
+
+#meeting-alert {
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 160px 160px auto;
+  gap: 20px;
+}
+
+.sector {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.sector-card {
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.sector-vertical {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  background: var(--sector-1-gradient);
+}
+
+.sector-vertical:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(59, 130, 246, 0.4);
+}
+
+.sector-horizontal:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+  background: var(--sector-2-gradient);
+}
+
+.sector-horizontal:nth-of-type(2):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(139, 92, 246, 0.4);
+}
+
+.sector-horizontal:nth-of-type(3) {
+  grid-column: 2;
+  grid-row: 2;
+  background: var(--sector-3-gradient);
+  color: #0f172a;
+}
+
+.sector-horizontal:nth-of-type(3) .sector-label {
+  color: #1e293b;
+}
+
+.sector-horizontal:nth-of-type(3):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(245, 158, 11, 0.4);
+}
+
+.sector-full-width {
+  grid-column: 1 / 3;
+  grid-row: 3;
+  min-height: 120px;
+  background: var(--sector-4-gradient);
+}
+
+.sector-full-width.hovered {
+  background: var(--sector-4-hover-gradient) !important;
+  border-radius: 0px !important;
+  box-shadow: 0 12px 24px -5px rgba(16, 185, 129, 0.4);
+}
+
+.sector-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sector-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.app-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-footer p {
+  color: white;
+}
+
+/* diseño y acomodo de responsiveness */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .sector-vertical {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 150px;
+  }
+
+  .sector-horizontal:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 150px;
+  }
+
+  .sector-horizontal:nth-of-type(3) {
+    grid-column: 1;
+    grid-row: 3;
+    min-height: 150px;
+  }
+
+  .sector-full-width {
+    grid-column: 1;
+    grid-row: 4;
+    min-height: 120px;
+  }
+}
