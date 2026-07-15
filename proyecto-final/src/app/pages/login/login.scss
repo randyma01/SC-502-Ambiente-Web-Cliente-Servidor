@@ -1,0 +1,17 @@
+.form-field-focused {
+  border-color: rgba(0, 130, 193, 0.6) !important;
+  background-color: #FAFCFF !important;
+  box-shadow: 0 0 0 3px rgba(0, 130, 193, 0.08) !important;
+}
+
+.form-control {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: #F7F8FA;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  
+  &:focus {
+    border-color: rgba(0, 130, 193, 0.6) !important;
+    background-color: #FAFCFF !important;
+    box-shadow: 0 0 0 3px rgba(0, 130, 193, 0.08) !important;
+  }
+}

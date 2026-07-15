@@ -1,0 +1,38 @@
+.nav-item-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  transition: color 0.2s ease-in-out;
+  position: relative;
+  
+  &:hover {
+    color: var(--blue) !important;
+  }
+  
+  &.active-link {
+    color: var(--blue) !important;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: var(--blue);
+    }
+  }
+}
+
+.nav-item-link-mobile {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  transition: color 0.2s ease-in-out;
+  
+  &:hover {
+    color: var(--blue) !important;
+  }
+  
+  &.active-link {
+    color: var(--blue) !important;
+  }
+}

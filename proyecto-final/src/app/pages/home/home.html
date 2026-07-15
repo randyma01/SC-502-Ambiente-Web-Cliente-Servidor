@@ -1,0 +1,317 @@
+<!-- Hero Section -->
+<section class="position-relative min-vh-100 d-flex align-items-center pt-5 overflow-hidden">
+  <!-- Hero Background -->
+  <div class="position-absolute inset-0 w-100 h-100 overflow-hidden pe-none user-select-none z-n1">
+    <div class="position-absolute inset-0 w-100 h-100" style="background: linear-gradient(150deg, #ffffff 0%, #EBF5FF 45%, #EDE8FF 100%);"></div>
+    <div class="position-absolute rounded-circle" style="top: -12rem; right: -12rem; width: 680px; height: 680px; background: radial-gradient(circle, rgba(0,130,193,0.12) 0%, transparent 65%);"></div>
+    <div class="position-absolute rounded-circle" style="bottom: -8rem; left: -8rem; width: 520px; height: 520px; background: radial-gradient(circle, rgba(43,28,90,0.10) 0%, transparent 65%);"></div>
+    <div class="position-absolute rounded-circle" style="top: 50%; transform: translateY(-50%); left: -6rem; width: 360px; height: 360px; background: radial-gradient(circle, rgba(106,176,35,0.06) 0%, transparent 65%);"></div>
+    <svg class="position-absolute top-0 start-0 w-100 h-100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="herogrid" width="80" height="80" patternUnits="userSpaceOnUse">
+          <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(0,130,193,0.07)" stroke-width="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#herogrid)" />
+    </svg>
+    <div class="position-absolute left-0 right-0 w-100"
+      style="top: 40%; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,130,193,0.15) 25%, rgba(106,176,35,0.20) 50%, rgba(43,28,90,0.15) 75%, transparent);"></div>
+    <div class="position-absolute bottom-0 start-0 end-0" style="height: 12rem; background: linear-gradient(to bottom, transparent, #FFFFFF);"></div>
+  </div>
+
+  <div class="container-xl px-4 px-lg-5 py-5 w-100">
+    <!-- Subtitle Meta -->
+    <div class="d-flex align-items-center gap-3 mb-4"
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(16px)',
+        'transition': 'opacity 0.7s ease, transform 0.7s ease'
+      }">
+      <span class="d-inline-block" style="width: 40px; height: 1px; background: linear-gradient(90deg, var(--green), var(--blue));"></span>
+      <span class="text-xs text-uppercase tracking-wider text-muted fw-semibold" style="font-size: 0.7rem; letter-spacing: 0.22em;">
+        MartinezGroup Net S.A. — Cartago, Costa Rica
+      </span>
+    </div>
+
+    <!-- Title and Core Value -->
+    <h1 class="fw-black text-dark leading-none mb-1 display-1"
+      [ngStyle]="{
+        'font-family': 'Inter, sans-serif',
+        'font-weight': '900',
+        'letter-spacing': '-0.03em',
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease 0.12s, transform 0.75s ease 0.12s'
+      }">
+      Definimos
+    </h1>
+    <h1 class="fw-black leading-none mb-4 display-1"
+      [ngStyle]="{
+        'font-family': 'Inter, sans-serif',
+        'font-weight': '900',
+        'letter-spacing': '-0.03em',
+        'background': 'linear-gradient(90deg, var(--blue) 0%, var(--purple) 100%)',
+        '-webkit-background-clip': 'text',
+        '-webkit-text-fill-color': 'transparent',
+        'background-clip': 'text',
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease 0.22s, transform 0.75s ease 0.22s'
+      }">
+      el estándar.
+    </h1>
+
+    <p class="fs-5 fw-light text-muted max-w-lg mb-5" style="max-width: 500px; line-height: 1.8;"
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(20px)',
+        'transition': 'opacity 0.75s ease 0.34s, transform 0.75s ease 0.34s'
+      }">
+      Dos décadas protegiendo las operaciones más críticas de Costa Rica.
+      Seguridad, nube e infraestructura sin compromisos.
+    </p>
+
+    <!-- Call to Actions -->
+    <div class="d-flex flex-column flex-sm-row gap-3"
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(20px)',
+        'transition': 'opacity 0.75s ease 0.46s, transform 0.75s ease 0.46s'
+      }">
+      <a routerLink="/soluciones"
+        class="btn text-white px-4 py-3 text-uppercase fw-semibold d-inline-flex align-items-center gap-2 group-hover-btn"
+        style="border-radius: 10px; background-color: var(--green); font-size: 0.75rem; letter-spacing: 0.1em; border: none; transition: opacity 0.2s;">
+        Nuestras soluciones
+        <i class="bi bi-arrow-right animate-arrow"></i>
+      </a>
+      <a routerLink="/contacto"
+        class="btn btn-outline-secondary px-4 py-3 text-uppercase fw-semibold text-dark hover-border-blue"
+        style="border-radius: 10px; border: 1px solid rgba(0,0,0,0.15); font-size: 0.75rem; letter-spacing: 0.1em; transition: all 0.3s;">
+        Contáctenos
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <div class="position-absolute start-50 translate-middle-x d-flex flex-column align-items-center gap-2 pe-none select-none" style="bottom: 2.5rem;">
+    <div class="animate-pulse-line" style="width: 1px; height: 56px; background: linear-gradient(to bottom, var(--blue), transparent);"></div>
+    <span class="text-uppercase tracking-wider text-muted-50 fw-semibold" style="font-size: 10px; letter-spacing: 0.22em; opacity: 0.4;">Scroll</span>
+  </div>
+</section>
+
+<!-- Statement Section -->
+<section #statementSection class="py-5 py-md-5"
+  style="background: linear-gradient(145deg, #EDE8FF 0%, #E8F4FF 50%, #EBF7E8 100%); border-top: 1px solid rgba(0,0,0,0.05);">
+  <div class="container-xl px-4 px-lg-5 py-5 transition-all duration-1000"
+    [ngStyle]="{
+      'opacity': statementVisible() ? 1 : 0,
+      'transform': statementVisible() ? 'none' : 'translateY(32px)',
+      'transition': 'opacity 1s ease-out, transform 1s ease-out'
+    }">
+    <p class="display-3 fw-black text-dark" style="font-weight: 900; letter-spacing: -0.025em; line-height: 1.05;">
+      No solo ofrecemos servicios.
+      <br />
+      <span style="background: linear-gradient(90deg, var(--green) 0%, var(--blue) 60%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        Redefinimos la industria.
+      </span>
+    </p>
+    <div class="mt-4 pt-2 d-flex align-items-center gap-3">
+      <span class="d-inline-block" style="width: 64px; height: 1px; background: linear-gradient(90deg, var(--green), var(--blue));"></span>
+      <p class="mb-0 text-muted fw-light" style="font-size: 0.85rem; letter-spacing: 0.05em;">
+        La firma tecnológica líder de Costa Rica desde 2004
+      </p>
+    </div>
+  </div>
+
+  <!-- Ticker (Moving Marquee) -->
+  <div class="mt-5 overflow-hidden py-3 border-top border-bottom"
+    style="border-color: rgba(43, 28, 90, 0.12) !important; background-color: rgba(255, 255, 255, 0.5);">
+    <div class="animate-ticker">
+      <!-- Double map to create infinite loop effect -->
+      @for (item of tickerItems; track $index) {
+        <span class="text-uppercase tracking-wider fw-bold" style="font-size: 0.75rem; letter-spacing: 0.22em;"
+          [ngStyle]="{ 'color': item === '·' ? (($index % 6 === 1) ? 'var(--green)' : ($index % 6 === 3) ? 'var(--blue)' : 'var(--purple)') : 'rgba(6,31,65,0.70)' }">
+          {{ item }}
+        </span>
+      }
+      @for (item of tickerItems; track $index) {
+        <span class="text-uppercase tracking-wider fw-bold" style="font-size: 0.75rem; letter-spacing: 0.22em;"
+          [ngStyle]="{ 'color': item === '·' ? (($index % 6 === 1) ? 'var(--green)' : ($index % 6 === 3) ? 'var(--blue)' : 'var(--purple)') : 'rgba(6,31,65,0.70)' }">
+          {{ item }}
+        </span>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section #servicesSection class="py-5 py-md-5 bg-white">
+  <div class="container-xl px-4 px-lg-5 py-5">
+    <!-- Header -->
+    <div class="mb-5 transition-all duration-700"
+      [ngStyle]="{
+        'opacity': servicesVisible() ? 1 : 0,
+        'transform': servicesVisible() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.8s ease, transform 0.8s ease'
+      }">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <span class="d-inline-block" style="width: 32px; height: 1px; background-color: var(--green);"></span>
+        <span class="text-xs text-uppercase tracking-wider text-muted fw-semibold" style="font-size: 0.7rem; letter-spacing: 0.22em;">Soluciones</span>
+      </div>
+      <h2 class="display-5 fw-black text-dark" style="font-weight: 900; letter-spacing: -0.025em;">
+        Tecnología que trabaja
+        <br />
+        <span style="background: linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          mientras usted descansa.
+        </span>
+      </h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="row g-4">
+      @for (service of services; track service.name) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="p-5 h-100 border border-light-subtle d-flex flex-column gap-4 cursor-pointer hover-card-transition shadow-sm rounded-4 bg-white"
+            [ngClass]="service.hoverClass"
+            [ngStyle]="{
+              'opacity': servicesVisible() ? 1 : 0,
+              'transform': servicesVisible() ? 'none' : 'translateY(20px)',
+              'transition': 'opacity 0.7s ease ' + ($index * 80) + 'ms, transform 0.7s ease ' + ($index * 80) + 'ms, background-color 0.25s, border-color 0.25s'
+            }">
+            <div class="d-flex align-items-center justify-content-center border rounded-3 bg-light"
+              style="width: 40px; height: 40px; transition: all 0.3s;"
+              [ngStyle]="{ 'border-color': service.iconColor + '40 !important' }">
+              <i class="bi {{ service.icon }} fs-5" [ngStyle]="{ 'color': service.iconColor }"></i>
+            </div>
+            <div class="d-flex flex-column gap-2 flex-grow-1">
+              <h3 class="h5 fw-bold text-dark mb-0">{{ service.name }}</h3>
+              <p class="text-muted leading-relaxed fw-light mb-0" style="font-size: 0.85rem; line-height: 1.6;">{{ service.desc }}</p>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-xs fw-semibold text-uppercase tracking-wider icon-more-link"
+              [ngStyle]="{ 'color': service.iconColor }"
+              style="font-size: 0.7rem; letter-spacing: 0.15em;">
+              Ver más <i class="bi bi-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section #statsSection class="py-5 py-md-5 text-white position-relative overflow-hidden"
+  style="background: linear-gradient(135deg, var(--purple) 0%, var(--navy) 100%);">
+  <div class="position-absolute inset-0 pe-none overflow-hidden">
+    <svg class="position-absolute top-0 start-0 w-100 h-100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="statsgrid" width="72" height="72" patternUnits="userSpaceOnUse">
+          <path d="M 72 0 L 0 0 0 72" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#statsgrid)" />
+    </svg>
+    <div class="position-absolute rounded-circle" style="top: -8rem; right: -8rem; width: 500px; height: 500px; background: radial-gradient(circle, rgba(106,176,35,0.15) 0%, transparent 65%);"></div>
+  </div>
+
+  <div class="container-xl px-4 px-lg-5 py-5 position-relative z-1">
+    <div class="row align-items-start g-5 py-3">
+      @for (stat of stats; track stat.label) {
+        <div class="col-12 col-md-4 d-flex flex-column gap-2"
+          [ngClass]="{ 'border-start-md border-white border-opacity-10 ps-md-5': !$first }"
+          [ngStyle]="{
+            'opacity': statsVisible() ? 1 : 0,
+            'transform': statsVisible() ? 'none' : 'translateY(28px)',
+            'transition': 'opacity 0.8s ease ' + ($index * 120) + 'ms, transform 0.8s ease ' + ($index * 120) + 'ms'
+          }">
+          <span class="display-1 fw-black mb-0 leading-none"
+            [ngStyle]="{ 'font-weight': '900', 'letter-spacing': '-0.04em', 'color': stat.color }">
+            {{ stat.value }}
+          </span>
+          <span class="text-uppercase tracking-wider text-white-50 fw-semibold" style="font-size: 0.75rem; letter-spacing: 0.16em;">
+            {{ stat.label }}
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section #partnersSection class="py-5 py-md-5" style="background-color: #F7F8FA;">
+  <div class="container-xl px-4 px-lg-5 py-5">
+    <div class="transition-all duration-700"
+      [ngStyle]="{
+        'opacity': partnersVisible() ? 1 : 0,
+        'transform': partnersVisible() ? 'none' : 'translateY(20px)',
+        'transition': 'opacity 0.7s ease, transform 0.7s ease'
+      }">
+      <div class="d-flex align-items-center gap-3 mb-5">
+        <span class="d-inline-block" style="width: 32px; height: 1px; background: linear-gradient(90deg, var(--blue), var(--purple));"></span>
+        <span class="text-xs text-uppercase tracking-wider text-muted fw-semibold" style="font-size: 0.7rem; letter-spacing: 0.22em;">Partners tecnológicos</span>
+      </div>
+
+      <div class="row g-4">
+        @for (partner of partners; track partner.name) {
+          <div class="col-6 col-md-3">
+            <div class="py-5 px-4 h-100 d-flex align-items-center justify-content-center bg-white border border-light-subtle rounded-3 hover-card-transition shadow-sm"
+              [ngClass]="partner.hoverClass"
+              [ngStyle]="{
+                'opacity': partnersVisible() ? 1 : 0,
+                'transition': 'opacity 0.6s ease ' + ($index * 60) + 'ms, background-color 0.25s, border-color 0.25s'
+              }">
+              <span class="text-uppercase tracking-wider text-muted fw-bold text-center partner-name" style="font-size: 0.8rem; letter-spacing: 0.1em; transition: color 0.3s;"
+                [ngStyle]="{ '--hover-color': partner.hoverColor }">
+                {{ partner.name }}
+              </span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section #ctaSection class="position-relative overflow-hidden py-5 py-md-5 text-white"
+  style="background: linear-gradient(135deg, #005F9E 0%, var(--purple) 100%);">
+  <div class="position-absolute inset-0 pe-none overflow-hidden">
+    <svg class="position-absolute top-0 start-0 w-100 h-100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="ctagrid" width="64" height="64" patternUnits="userSpaceOnUse">
+          <path d="M 64 0 L 0 0 0 64" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#ctagrid)" />
+    </svg>
+    <div class="position-absolute rounded-circle" style="bottom: -8rem; right: 0; width: 600px; height: 600px; background: radial-gradient(circle, rgba(106,176,35,0.18) 0%, transparent 65%);"></div>
+  </div>
+
+  <div class="container-xl px-4 px-lg-5 py-5 position-relative z-1"
+    [ngStyle]="{
+      'opacity': ctaVisible() ? 1 : 0,
+      'transform': ctaVisible() ? 'none' : 'translateY(28px)',
+      'transition': 'opacity 0.9s ease, transform 0.9s ease'
+    }">
+    <p class="display-3 fw-black text-white mb-4" style="font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;">
+      ¿Listo para elevar
+      <br />
+      <span style="color: var(--green);">su seguridad?</span>
+    </p>
+    <p class="fs-5 fw-light text-white-50 max-w-md mb-5" style="max-width: 440px; line-height: 1.8;">
+      Hablemos de lo que su empresa necesita. Sin compromisos, sin genéricos.
+    </p>
+    <div class="d-flex flex-column flex-sm-row gap-3">
+      <a routerLink="/contacto"
+        class="btn text-white px-4 py-3 text-uppercase fw-semibold d-inline-flex align-items-center gap-2 group-hover-btn"
+        style="border-radius: 10px; background-color: var(--green); font-size: 0.75rem; letter-spacing: 0.1em; border: none; transition: opacity 0.2s;">
+        Contáctenos <i class="bi bi-arrow-right animate-arrow"></i>
+      </a>
+      <a href="tel:+50622207900"
+        class="btn btn-outline-light px-4 py-3 text-uppercase fw-semibold"
+        style="border-radius: 10px; font-size: 0.75rem; letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.3); transition: background-color 0.2s;">
+        +506 2220-7900
+      </a>
+    </div>
+  </div>
+</section>

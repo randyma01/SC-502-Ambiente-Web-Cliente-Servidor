@@ -1,0 +1,113 @@
+<header
+  class="fixed-top"
+  [ngStyle]="{
+    'background': scrolled() ? 'rgba(255,255,255,0.92)' : 'transparent',
+    'backdrop-filter': scrolled() ? 'blur(16px)' : 'none',
+    'border-bottom': scrolled() ? '1px solid rgba(0,0,0,0.07)' : 'none'
+  }"
+  style="transition: all 0.5s ease-in-out;"
+>
+  <nav class="container-xl mx-auto px-4 px-lg-5 d-flex align-items-center justify-content-between" style="height: 80px;">
+    <!-- Logo -->
+    <a routerLink="/" (click)="closeMenu()" class="d-flex align-items-center gap-2 text-decoration-none group">
+      <span class="fs-4 fw-black text-dark" style="letter-spacing: -0.04em; font-weight: 900;">MGN</span>
+      <div class="d-flex gap-1 align-items-center">
+        <span class="rounded-circle d-inline-block" style="width: 6px; height: 6px; background-color: var(--green); transition: transform 0.3s;"></span>
+        <span class="rounded-circle d-inline-block" style="width: 6px; height: 6px; background-color: var(--blue); transition: transform 0.3s;"></span>
+        <span class="rounded-circle d-inline-block" style="width: 6px; height: 6px; background-color: var(--purple); transition: transform 0.3s;"></span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <ul class="d-none d-md-flex align-items-center list-unstyled mb-0 gap-4 gap-lg-5">
+      <li>
+        <a routerLink="/soluciones" routerLinkActive="active-link" class="nav-item-link text-uppercase text-decoration-none text-muted fw-bold">Soluciones</a>
+      </li>
+      <li>
+        <a routerLink="/partners" routerLinkActive="active-link" class="nav-item-link text-uppercase text-decoration-none text-muted fw-bold">Partners</a>
+      </li>
+      <li>
+        <a routerLink="/valores" routerLinkActive="active-link" class="nav-item-link text-uppercase text-decoration-none text-muted fw-bold">Valores</a>
+      </li>
+      <li>
+        <a routerLink="/contacto" routerLinkActive="active-link" class="nav-item-link text-uppercase text-decoration-none text-muted fw-bold">Contacto</a>
+      </li>
+    </ul>
+
+    <!-- Desktop CTA Button -->
+    <div class="d-none d-md-flex align-items-center gap-3">
+      @if (auth.isLoggedIn()) {
+        <div class="d-flex align-items-center gap-2 px-3 py-1.5 border rounded-pill bg-light" style="border-color: rgba(0,0,0,0.08) !important;">
+          <span class="text-xs fw-bold text-dark" style="font-size: 0.75rem;">{{ auth.currentUser()?.nombre }}</span>
+          <span class="text-uppercase fw-bold px-2 py-0.5 rounded-pill" 
+            [ngStyle]="{
+              'font-size': '0.6rem',
+              'letter-spacing': '0.05em',
+              'background-color': auth.userRole() === 'Administrador' ? 'rgba(43, 28, 90, 0.08)' : auth.userRole() === 'Soporte' ? 'rgba(0, 130, 193, 0.08)' : 'rgba(106, 176, 35, 0.08)',
+              'color': auth.userRole() === 'Administrador' ? 'var(--purple)' : auth.userRole() === 'Soporte' ? 'var(--blue)' : 'var(--green)'
+            }">
+            {{ auth.userRole() }}
+          </span>
+        </div>
+        <button (click)="logout()"
+          class="btn btn-outline-danger px-3 py-2 text-uppercase fw-semibold"
+          style="border-radius: 10px; font-size: 0.7rem; letter-spacing: 0.12em; border: 1px solid rgba(220,53,69,0.2); transition: all 0.2s;">
+          Salir <i class="bi bi-box-arrow-right"></i>
+        </button>
+      } @else {
+        <a routerLink="/login"
+          class="btn text-white text-uppercase fw-semibold px-4 py-2 d-inline-flex align-items-center gap-2"
+          style="border-radius: 10px; background: linear-gradient(135deg, var(--blue), var(--purple)); font-size: 0.75rem; letter-spacing: 0.12em; border: none;">
+          Ingresar <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+      }
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="d-md-none btn p-2 text-muted border-0" (click)="toggleOpen()">
+      @if (open()) {
+        <i class="bi bi-x fs-3"></i>
+      } @else {
+        <i class="bi bi-list fs-3"></i>
+      }
+    </button>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  @if (open()) {
+    <div class="d-md-none px-4 py-4 border-top shadow-sm" style="background: rgba(255,255,255,0.97);">
+      <div class="d-flex flex-column gap-3">
+        <a routerLink="/soluciones" (click)="closeMenu()" routerLinkActive="active-link" class="nav-item-link-mobile text-uppercase text-decoration-none text-muted fw-bold py-2">Soluciones</a>
+        <a routerLink="/partners" (click)="closeMenu()" routerLinkActive="active-link" class="nav-item-link-mobile text-uppercase text-decoration-none text-muted fw-bold py-2">Partners</a>
+        <a routerLink="/valores" (click)="closeMenu()" routerLinkActive="active-link" class="nav-item-link-mobile text-uppercase text-decoration-none text-muted fw-bold py-2">Valores</a>
+        <a routerLink="/contacto" (click)="closeMenu()" routerLinkActive="active-link" class="nav-item-link-mobile text-uppercase text-decoration-none text-muted fw-bold py-2">Contacto</a>
+        @if (auth.isLoggedIn()) {
+          <div class="d-flex flex-column gap-2 mt-2 pt-3 border-top" style="border-color: rgba(0,0,0,0.06) !important;">
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-xs fw-bold text-dark" style="font-size: 0.8rem;">{{ auth.currentUser()?.nombre }}</span>
+              <span class="text-uppercase fw-bold px-2 py-0.5 rounded-pill" 
+                [ngStyle]="{
+                  'font-size': '0.6rem',
+                  'background-color': auth.userRole() === 'Administrador' ? 'rgba(43, 28, 90, 0.08)' : auth.userRole() === 'Soporte' ? 'rgba(0, 130, 193, 0.08)' : 'rgba(106, 176, 35, 0.08)',
+                  'color': auth.userRole() === 'Administrador' ? 'var(--purple)' : auth.userRole() === 'Soporte' ? 'var(--blue)' : 'var(--green)'
+                }">
+                {{ auth.userRole() }}
+              </span>
+            </div>
+            <button (click)="logout()"
+              class="btn btn-outline-danger px-3 py-2 text-uppercase fw-semibold w-fit mt-2"
+              style="border-radius: 10px; font-size: 0.7rem; letter-spacing: 0.12em;">
+              Cerrar sesión <i class="bi bi-box-arrow-right"></i>
+            </button>
+          </div>
+        } @else {
+          <a routerLink="/login" (click)="closeMenu()"
+            class="btn text-white text-uppercase fw-semibold px-4 py-2 d-inline-flex align-items-center gap-2 w-fit mt-2"
+            style="border-radius: 10px; background: linear-gradient(135deg, var(--blue), var(--purple)); font-size: 0.75rem; letter-spacing: 0.12em; border: none;">
+            Ingresar <i class="bi bi-box-arrow-in-right"></i>
+          </a>
+        }
+      </div>
+    </div>
+  }
+</header>

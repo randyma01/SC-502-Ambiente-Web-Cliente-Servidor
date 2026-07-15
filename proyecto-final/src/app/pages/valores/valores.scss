@@ -1,0 +1,14 @@
+.group-hover-btn {
+  &:hover {
+    opacity: 0.9;
+    
+    .animate-arrow {
+      transform: translateX(4px);
+    }
+  }
+  
+  .animate-arrow {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+  }
+}

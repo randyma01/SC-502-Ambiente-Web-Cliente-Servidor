@@ -1,0 +1,55 @@
+.group-hover-btn {
+  &:hover {
+    opacity: 0.9;
+    
+    .animate-arrow {
+      transform: translateX(4px);
+    }
+  }
+  
+  .animate-arrow {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+  }
+}
+
+.partner-card-item {
+  border-color: rgba(0, 0, 0, 0.07) !important;
+  background-color: #FFFFFF;
+  
+  .animate-partner-arrow {
+    transition: transform 0.2s, color 0.2s;
+    color: rgba(0, 0, 0, 0.25);
+    display: inline-block;
+  }
+  
+  &:hover {
+    background-color: var(--accent-tint) !important;
+    border-color: var(--accent-color) !important;
+    
+    .animate-partner-arrow {
+      transform: translateX(3px);
+      color: var(--accent-color) !important;
+    }
+  }
+}
+
+.benefit-card {
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  
+  &:hover {
+    background-color: #FFFFFF !important;
+    border-color: var(--shadow-color) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    
+    .icon-container {
+      background-color: rgba(0, 0, 0, 0.01) !important;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .border-start-md {
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+}

@@ -1,0 +1,61 @@
+.group-hover-btn {
+  &:hover {
+    opacity: 0.9;
+    
+    .animate-arrow {
+      transform: translateX(4px);
+    }
+  }
+  
+  .animate-arrow {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+  }
+}
+
+.channel-card {
+  color: #4B5563;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    border-color: var(--border-hover) !important;
+    background-color: #FFFFFF !important;
+    box-shadow: var(--shadow-hover);
+    
+    .icon-container {
+      background-color: var(--accent-tint) !important;
+      border-color: var(--accent-color) !important;
+    }
+  }
+}
+
+.form-field-focused {
+  border-color: rgba(0, 130, 193, 0.6) !important;
+  background-color: #FAFCFF !important;
+  box-shadow: 0 0 0 3px rgba(0, 130, 193, 0.08) !important;
+}
+
+.form-control {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: #F7F8FA;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  
+  &:focus {
+    border-color: rgba(0, 130, 193, 0.6) !important;
+    background-color: #FAFCFF !important;
+    box-shadow: 0 0 0 3px rgba(0, 130, 193, 0.08) !important;
+  }
+}
+
+.topic-pill-btn {
+  &:hover {
+    background-color: rgba(0, 130, 193, 0.04) !important;
+    border-color: rgba(0, 130, 193, 0.25) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .border-start-md {
+    border-left: 1px solid rgba(0, 0, 0, 0.07) !important;
+  }
+}

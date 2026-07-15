@@ -1,0 +1,256 @@
+<section class="position-relative min-vh-85 d-flex align-items-center pt-5 overflow-hidden">
+  <app-page-background></app-page-background>
+
+  <div class="container-xl px-4 px-lg-5 py-5 w-100 position-relative z-1">
+    <!-- Breadcrumb -->
+    <div class="d-flex align-items-center gap-2 mb-5"
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease, transform 0.75s ease'
+      }">
+      <a routerLink="/" class="text-uppercase text-decoration-none text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.2em;">Inicio</a>
+      <i class="bi bi-chevron-right text-muted" style="font-size: 0.7rem;"></i>
+      <span class="text-uppercase text-decoration-none fw-bold" style="color: var(--green); font-size: 0.7rem; letter-spacing: 0.2em;">Soluciones</span>
+    </div>
+
+    <!-- Page Headers -->
+    <div
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease 100ms, transform 0.75s ease 100ms'
+      }">
+      <h1 class="fw-black leading-none display-1 text-dark" style="font-weight: 900; letter-spacing: -0.03em;">
+        Cada amenaza
+      </h1>
+      <h1 class="fw-black leading-none display-1"
+        style="font-weight: 900; letter-spacing: -0.03em; background: linear-gradient(90deg, var(--green), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        tiene respuesta.
+      </h1>
+      <h1 class="fw-black leading-none mb-5 display-1" style="color: var(--purple); font-weight: 900; letter-spacing: -0.03em;">
+        La nuestra.
+      </h1>
+    </div>
+
+    <!-- Description Paragraph -->
+    <div class="row align-items-end g-4"
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease 280ms, transform 0.75s ease 280ms'
+      }">
+      <div class="col-12 col-lg-7">
+        <p class="fs-5 fw-light text-muted mb-0" style="line-height: 1.8;">
+          Seis líneas de servicio. Un solo equipo certificado. La tranquilidad de saber
+          que cada capa de su organización está protegida por especialistas.
+        </p>
+      </div>
+      <div class="col-12 col-lg-5 d-flex justify-content-lg-end">
+        <a routerLink="/contacto"
+          class="btn text-white px-4 py-3 text-uppercase fw-semibold d-inline-flex align-items-center gap-2 group-hover-btn"
+          style="border-radius: 10px; background-color: var(--green); font-size: 0.75rem; letter-spacing: 0.1em; border: none; transition: opacity 0.2s;">
+          Solicitar diagnóstico <i class="bi bi-arrow-right animate-arrow"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solutions Rows Section -->
+<section class="py-4 bg-white">
+  <div class="container-xl px-4 px-lg-5">
+    @for (sol of solutions; track sol.id) {
+      <div #solutionRow class="py-5 my-3"
+        [ngStyle]="{
+          'border-top': '1px solid rgba(0,0,0,0.07)',
+          'opacity': solutionsVisible()[$index] ? 1 : 0,
+          'transform': solutionsVisible()[$index] ? 'none' : 'translateY(24px)',
+          'transition': 'opacity 0.8s ease ' + ($index * 50) + 'ms, transform 0.8s ease ' + ($index * 50) + 'ms'
+        }">
+        <div class="row align-items-start g-5">
+          <!-- Text details column -->
+          <div class="col-12 col-lg-5 flex-column d-flex gap-4"
+            [ngClass]="{ 'order-lg-1': $even, 'order-lg-2 offset-lg-1': $odd }">
+            <div class="d-flex align-items-center gap-3">
+              <span class="fs-5 fw-black tabular-nums" [ngStyle]="{ 'color': sol.color + '50' }" style="font-family: 'Inter', sans-serif;">{{ sol.id }}</span>
+              <span class="d-inline-block" [ngStyle]="{ 'background-color': sol.color }" style="width: 32px; height: 1px;"></span>
+            </div>
+            
+            <div class="d-flex align-items-center gap-3">
+              <div class="w-10 d-flex align-items-center justify-content-center border rounded-3 bg-light"
+                style="width: 40px; height: 40px;"
+                [ngStyle]="{ 'border-color': sol.color + '35', 'background-color': sol.color + '10' }">
+                <i class="bi {{ sol.icon }} fs-5" [ngStyle]="{ 'color': sol.color }"></i>
+              </div>
+              <h2 class="h2 fw-black text-dark mb-0" style="font-weight: 900; letter-spacing: -0.025em;">
+                {{ sol.name }}
+              </h2>
+            </div>
+            
+            <p class="fs-6 fw-semibold mb-0" [ngStyle]="{ 'color': sol.color }">{{ sol.tagline }}</p>
+            <p class="text-muted leading-relaxed fw-light mb-0" style="font-size: 0.9rem; line-height: 1.7;">{{ sol.description }}</p>
+            <p class="text-uppercase fw-semibold mb-0" [ngStyle]="{ 'color': sol.color }" style="font-size: 0.7rem; letter-spacing: 0.14em;">{{ sol.differentiator }}</p>
+          </div>
+
+          <!-- Capabilities card column -->
+          <div class="col-12 col-lg-6"
+            [ngClass]="{ 'order-lg-2 offset-lg-1': $even, 'order-lg-1': $odd }">
+            <div class="p-5 h-100 border border-light-subtle d-flex flex-column gap-4 rounded-4"
+              [ngStyle]="{ 'background-color': sol.tint, 'border-color': sol.color + '20 !important' }">
+              <p class="text-uppercase fw-semibold mb-0" [ngStyle]="{ 'color': sol.color }" style="font-size: 0.75rem; letter-spacing: 0.18em;">Capacidades</p>
+              
+              <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                @for (cap of sol.capabilities; track cap) {
+                  <li class="d-flex align-items-center gap-3">
+                    <span class="rounded-circle d-inline-block shrink-0" style="width: 6px; height: 6px;" [ngStyle]="{ 'background-color': sol.color }"></span>
+                    <span class="fs-6 fw-semibold" style="color: var(--navy);">{{ cap }}</span>
+                  </li>
+                }
+              </ul>
+
+              <div class="pt-4 border-top" [ngStyle]="{ 'border-color': sol.color + '20 !important' }">
+                <p class="text-uppercase fw-semibold mb-3 text-muted" style="font-size: 0.7rem; letter-spacing: 0.14em;">Tecnologías</p>
+                <div class="d-flex flex-wrap gap-2">
+                  @for (t of sol.tech; track t) {
+                    <span class="text-xs fw-semibold px-3 py-2 border rounded-3"
+                      [ngStyle]="{ 'background-color': sol.color + '14', 'color': sol.color, 'border-color': sol.color + '25 !important' }"
+                      style="font-size: 0.75rem;">
+                      {{ t }}
+                    </span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Process Section -->
+<section #processSection data-section-name="process" class="py-5 py-md-5"
+  style="background: linear-gradient(145deg, #EDE8FF 0%, #E8F4FF 50%, #EBF7E8 100%);">
+  <div class="container-xl px-4 px-lg-5 py-5">
+    <!-- Header -->
+    <div class="mb-5 transition-all duration-700"
+      [ngStyle]="{
+        'opacity': processVisible() ? 1 : 0,
+        'transform': processVisible() ? 'none' : 'translateY(20px)',
+        'transition': 'opacity 0.7s ease, transform 0.7s ease'
+      }">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <span class="d-inline-block" style="width: 32px; height: 1px; background: linear-gradient(90deg, var(--blue), var(--purple));"></span>
+        <span class="text-xs text-uppercase tracking-wider text-muted fw-semibold" style="font-size: 0.7rem; letter-spacing: 0.22em;">Nuestro proceso</span>
+      </div>
+      <h2 class="display-5 fw-black text-dark" style="font-weight: 900; letter-spacing: -0.025em;">
+        De la auditoría a la protección
+        <span style="background: linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          continua.
+        </span>
+      </h2>
+    </div>
+
+    <!-- Step Cards Grid -->
+    <div class="row g-4">
+      @for (step of processSteps; track step.step) {
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="p-4 h-100 border border-white d-flex flex-column gap-4 rounded-4 shadow-sm"
+            style="background: rgba(255,255,255,0.75); backdrop-filter: blur(8px);"
+            [ngStyle]="{
+              'opacity': processVisible() ? 1 : 0,
+              'transform': processVisible() ? 'none' : 'translateY(20px)',
+              'transition': 'opacity 0.7s ease ' + ($index * 100) + 'ms, transform 0.7s ease ' + ($index * 100) + 'ms'
+            }">
+            <span class="display-5 fw-black text-muted-50 leading-none" style="font-weight: 900; letter-spacing: -0.04em; color: rgba(0,0,0,0.12);"
+              [ngStyle]="{ 'color': step.color + '40 !important' }">
+              {{ step.step }}
+            </span>
+            <div class="d-flex flex-column gap-2 flex-grow-1">
+              <h3 class="h6 fw-bold text-dark mb-0">{{ step.name }}</h3>
+              <p class="text-muted leading-relaxed fw-light mb-0" style="font-size: 0.85rem; line-height: 1.6;">{{ step.desc }}</p>
+            </div>
+            <div class="mt-auto pt-3 border-top border-light-subtle">
+              <span class="d-inline-block" style="width: 24px; height: 1.5px;" [ngStyle]="{ 'background-color': step.color }"></span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Proof Metrics Section -->
+<section #proofSection data-section-name="proof" class="py-5 py-md-5 text-white position-relative overflow-hidden"
+  style="background: linear-gradient(135deg, var(--purple) 0%, var(--navy) 100%);">
+  <div class="position-absolute inset-0 pe-none overflow-hidden">
+    <svg class="position-absolute top-0 start-0 w-100 h-100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="proofgrid" width="64" height="64" patternUnits="userSpaceOnUse">
+          <path d="M 64 0 L 0 0 0 64" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#proofgrid)" />
+    </svg>
+    <div class="position-absolute rounded-circle" style="top: -6rem; right: 0; width: 380px; height: 380px; background: radial-gradient(circle, rgba(106,176,35,0.15) 0%, transparent 65%);"></div>
+  </div>
+
+  <div class="container-xl px-4 px-lg-5 py-5 position-relative z-1">
+    <div class="row align-items-start g-5 py-3">
+      @for (item of proof; track item.label) {
+        <div class="col-12 col-md-4 d-flex flex-column gap-2"
+          [ngClass]="{ 'border-start-md border-white border-opacity-10 ps-md-5': !$first }"
+          [ngStyle]="{
+            'opacity': proofVisible() ? 1 : 0,
+            'transform': proofVisible() ? 'none' : 'translateY(20px)',
+            'transition': 'opacity 0.7s ease ' + ($index * 120) + 'ms, transform 0.7s ease ' + ($index * 120) + 'ms'
+          }">
+          <span class="display-2 fw-black mb-0 leading-none"
+            [ngStyle]="{ 'font-weight': '900', 'letter-spacing': '-0.04em', 'color': item.color }">
+            {{ item.value }}
+          </span>
+          <span class="text-uppercase tracking-wider text-white-50 fw-semibold" style="font-size: 0.75rem; letter-spacing: 0.14em;">
+            {{ item.label }}
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section #ctaSection data-section-name="cta" class="position-relative overflow-hidden py-5 py-md-5 text-white"
+  style="background: linear-gradient(135deg, #005F9E 0%, var(--purple) 100%);">
+  <div class="position-absolute inset-0 pe-none overflow-hidden">
+    <div class="position-absolute rounded-circle" style="bottom: -8rem; right: 0; width: 600px; height: 600px; background: radial-gradient(circle, rgba(106,176,35,0.18) 0%, transparent 65%);"></div>
+  </div>
+
+  <div class="container-xl px-4 px-lg-5 py-5 position-relative z-1"
+    [ngStyle]="{
+      'opacity': ctaVisible() ? 1 : 0,
+      'transform': ctaVisible() ? 'none' : 'translateY(28px)',
+      'transition': 'opacity 0.9s ease, transform 0.9s ease'
+    }">
+    <p class="display-3 fw-black text-white mb-4" style="font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;">
+      La tecnología correcta,
+      <br />
+      <span style="color: var(--green);">implementada correctamente.</span>
+    </p>
+    <p class="fs-5 fw-light text-white-50 max-w-lg mb-5" style="max-width: 480px; line-height: 1.8;">
+      Hable con un especialista certificado. Le ayudamos a seleccionar la solución adecuada para su desafío.
+    </p>
+    <div class="d-flex flex-column flex-sm-row gap-3">
+      <a routerLink="/contacto"
+        class="btn text-white px-4 py-3 text-uppercase fw-semibold d-inline-flex align-items-center gap-2 group-hover-btn"
+        style="border-radius: 10px; background-color: var(--green); font-size: 0.75rem; letter-spacing: 0.1em; border: none; transition: opacity 0.2s;">
+        Solicitar asesoría técnica <i class="bi bi-arrow-right animate-arrow"></i>
+      </a>
+      <a href="tel:+50622207900"
+        class="btn btn-outline-light px-4 py-3 text-uppercase fw-semibold"
+        style="border-radius: 10px; font-size: 0.75rem; letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.3); transition: background-color 0.2s;">
+        +506 2220-7900
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+<div class="min-h-screen d-flex flex-column justify-content-between">
+  <div>
+    <app-nav [scrolled]="scrolled()"></app-nav>
+    <main class="w-100">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  <app-footer></app-footer>
+</div>

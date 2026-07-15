@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "bootstrap/scss/bootstrap";
+
+:root {
+  --green: #6AB023;
+  --blue: #0082C1;
+  --purple: #2B1C5A;
+  --navy: #061F41;
+  
+  --bg-color: #FFFFFF;
+  --text-color: #0D0F14;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* Custom Utilities and Animations */
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+  animation: ticker 28s linear infinite;
+  width: max-content;
+}
+
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-line {
+  animation: pulse-line 2s infinite;
+}
+
+/* Smooth transition for hovered cards */
+.hover-card-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-card-tint-green:hover {
+  background-color: #F0F9E8 !important;
+  border-color: rgba(106, 176, 35, 0.35) !important;
+}
+
+.hover-card-tint-blue:hover {
+  background-color: #E8F4FF !important;
+  border-color: rgba(0, 130, 193, 0.35) !important;
+}
+
+.hover-card-tint-purple:hover {
+  background-color: #EDE8FF !important;
+  border-color: rgba(43, 28, 90, 0.35) !important;
+}

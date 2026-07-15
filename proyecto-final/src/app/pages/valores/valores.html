@@ -1,0 +1,188 @@
+<section class="position-relative min-vh-85 d-flex align-items-center pt-5 overflow-hidden">
+  <app-page-background startColor="#EBF7E8" endColor="#EDE8FF"></app-page-background>
+
+  <div class="container-xl px-4 px-lg-5 py-5 w-100 position-relative z-1">
+    <!-- Breadcrumb -->
+    <div class="d-flex align-items-center gap-2 mb-5"
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease, transform 0.75s ease'
+      }">
+      <a routerLink="/" class="text-uppercase text-decoration-none text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.2em;">Inicio</a>
+      <i class="bi bi-chevron-right text-muted" style="font-size: 0.7rem;"></i>
+      <span class="text-uppercase text-decoration-none fw-bold" style="color: var(--purple); font-size: 0.7rem; letter-spacing: 0.2em;">Valores</span>
+    </div>
+
+    <!-- Page Headers -->
+    <div
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease 100ms, transform 0.75s ease 100ms'
+      }">
+      <h1 class="fw-black leading-none display-1 text-dark" style="font-weight: 900; letter-spacing: -0.03em;">
+        Nuestros
+      </h1>
+      <h1 class="fw-black leading-none display-1"
+        style="font-weight: 900; letter-spacing: -0.03em; background: linear-gradient(90deg, var(--green), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        valores éticos.
+      </h1>
+      <h1 class="fw-black leading-none mb-5 display-1" style="color: var(--blue); font-weight: 900; letter-spacing: -0.03em;">
+        El cimiento.
+      </h1>
+    </div>
+
+    <!-- Description -->
+    <div class="row align-items-end g-4"
+      [ngStyle]="{
+        'opacity': ready() ? 1 : 0,
+        'transform': ready() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.75s ease 280ms, transform 0.75s ease 280ms'
+      }">
+      <div class="col-12 col-lg-8">
+        <p class="fs-5 fw-light text-muted mb-0" style="line-height: 1.8;">
+          Comprometidos con la excelencia, la innovación y la integridad en cada proyecto que tomamos.
+          Nuestra conducta define las relaciones a largo plazo con nuestros colaboradores, clientes y partners.
+        </p>
+      </div>
+      <div class="col-12 col-lg-4 d-flex justify-content-lg-end">
+        <a href="#politicas"
+          class="btn text-white px-4 py-3 text-uppercase fw-semibold d-inline-flex align-items-center gap-2 group-hover-btn"
+          style="border-radius: 10px; background-color: var(--purple); font-size: 0.75rem; letter-spacing: 0.1em; border: none; transition: opacity 0.2s;">
+          Ver políticas <i class="bi bi-arrow-right animate-arrow"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values Cards Grid Section -->
+<section #gridSection class="py-5 bg-white">
+  <div class="container-xl px-4 px-lg-5 py-5">
+    <div class="row g-4 transition-all duration-700"
+      [ngStyle]="{
+        'opacity': gridVisible() ? 1 : 0,
+        'transform': gridVisible() ? 'none' : 'translateY(24px)',
+        'transition': 'opacity 0.8s ease, transform 0.8s ease'
+      }">
+      @for (val of values; track val.name) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="p-5 h-100 border border-light-subtle d-flex flex-column gap-4 rounded-4 hover-card-transition bg-white"
+            [ngClass]="val.hoverClass"
+            [ngStyle]="{
+              'transition': 'opacity 0.7s ease ' + ($index * 80) + 'ms, transform 0.7s ease ' + ($index * 80) + 'ms, background-color 0.25s, border-color 0.25s'
+            }">
+            <div class="d-flex align-items-center justify-content-center border rounded-3 bg-light"
+              style="width: 40px; height: 40px;"
+              [ngStyle]="{ 'border-color': val.color + '35', 'background-color': val.color + '10' }">
+              <i class="bi {{ val.icon }} fs-5" [ngStyle]="{ 'color': val.color }"></i>
+            </div>
+            
+            <div class="d-flex flex-column gap-2 flex-grow-1">
+              <h3 class="h5 fw-bold text-dark mb-0">{{ val.name }}</h3>
+              <p class="text-muted leading-relaxed fw-light mb-0" style="font-size: 0.85rem; line-height: 1.6;">{{ val.desc }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Policies Section -->
+<section id="politicas" #policiesSection class="py-5 py-md-5"
+  style="background: linear-gradient(145deg, #EDE8FF 0%, #E8F4FF 50%, #EBF7E8 100%);">
+  <div class="container-xl px-4 px-lg-5 py-5">
+    <!-- Header -->
+    <div class="mb-5 transition-all duration-700"
+      [ngStyle]="{
+        'opacity': policiesVisible() ? 1 : 0,
+        'transform': policiesVisible() ? 'none' : 'translateY(20px)',
+        'transition': 'opacity 0.7s ease, transform 0.7s ease'
+      }">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <span class="d-inline-block" style="width: 32px; height: 1px; background: linear-gradient(90deg, var(--green), var(--purple));"></span>
+        <span class="text-xs text-uppercase tracking-wider text-muted fw-semibold" style="font-size: 0.7rem; letter-spacing: 0.22em;">Transparencia y ética</span>
+      </div>
+      <h2 class="display-5 fw-black text-dark" style="font-weight: 900; letter-spacing: -0.025em;">
+        Nuestras políticas
+        <span style="background: linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          corporativas.
+        </span>
+      </h2>
+    </div>
+
+    <!-- Policy Cards Grid -->
+    <div class="row g-4">
+      @for (policy of policies; track policy.name) {
+        <div class="col-12 col-md-4">
+          <div class="p-5 h-100 border d-flex flex-column gap-4 rounded-4 shadow-sm hover-card-transition bg-white"
+            [ngClass]="policy.hoverClass"
+            [ngStyle]="{
+              'opacity': policiesVisible() ? 1 : 0,
+              'transform': policiesVisible() ? 'none' : 'translateY(20px)',
+              'transition': 'opacity 0.7s ease ' + ($index * 100) + 'ms, transform 0.7s ease ' + ($index * 100) + 'ms, background-color 0.25s, border-color 0.25s',
+              'border-color': 'rgba(0, 0, 0, 0.08) !important'
+            }">
+            <div class="w-10 h-10 d-flex align-items-center justify-content-center border rounded-3 bg-light"
+              style="width: 40px; height: 40px; border-color: rgba(0,0,0,0.06) !important;">
+              <i class="bi {{ policy.icon }} fs-5" [ngStyle]="{ 'color': policy.color }"></i>
+            </div>
+            
+            <div class="d-flex flex-column gap-2 flex-grow-1">
+              <h3 class="h6 fw-bold text-dark mb-0" style="font-size: 1.05rem;">{{ policy.name }}</h3>
+              <p class="text-muted leading-relaxed fw-light mb-0" style="font-size: 0.85rem; line-height: 1.6;">{{ policy.desc }}</p>
+            </div>
+            
+            <div class="pt-3 border-top mt-auto" style="border-color: rgba(0,0,0,0.06) !important;">
+              <a [href]="policy.url" target="_blank" rel="noopener noreferrer"
+                (click)="logDownload(policy.name)"
+                class="btn text-white text-uppercase fw-semibold px-4 py-2 d-inline-flex align-items-center gap-2"
+                [ngStyle]="{ 'background-color': policy.color }"
+                style="border-radius: 8px; font-size: 0.7rem; letter-spacing: 0.1em; border: none;">
+                Leer Política <i class="bi bi-file-earmark-pdf"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section #ctaSection class="position-relative overflow-hidden py-5 py-md-5 text-white"
+  style="background: linear-gradient(135deg, #005F9E 0%, var(--purple) 100%);">
+  <div class="position-absolute inset-0 pe-none overflow-hidden">
+    <div class="position-absolute rounded-circle" style="bottom: -8rem; right: 0; width: 600px; height: 600px; background: radial-gradient(circle, rgba(106,176,35,0.18) 0%, transparent 65%);"></div>
+  </div>
+
+  <div class="container-xl px-4 px-lg-5 py-5 position-relative z-1"
+    [ngStyle]="{
+      'opacity': ctaVisible() ? 1 : 0,
+      'transform': ctaVisible() ? 'none' : 'translateY(28px)',
+      'transition': 'opacity 0.9s ease, transform 0.9s ease'
+    }">
+    <p class="display-3 fw-black text-white mb-4" style="font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;">
+      ¿Listo para elevar
+      <br />
+      <span style="color: var(--green);">su seguridad?</span>
+    </p>
+    <p class="fs-5 fw-light text-white-50 max-w-md mb-5" style="max-width: 440px; line-height: 1.8;">
+      Hablemos de lo que su empresa necesita. Sin compromisos, sin genéricos.
+    </p>
+    <div class="d-flex flex-column flex-sm-row gap-3">
+      <a routerLink="/contacto"
+        class="btn text-white px-4 py-3 text-uppercase fw-semibold d-inline-flex align-items-center gap-2 group-hover-btn"
+        style="border-radius: 10px; background-color: var(--green); font-size: 0.75rem; letter-spacing: 0.1em; border: none; transition: opacity 0.2s;">
+        Contáctenos <i class="bi bi-arrow-right animate-arrow"></i>
+      </a>
+      <a href="tel:+50622207900"
+        class="btn btn-outline-light px-4 py-3 text-uppercase fw-semibold"
+        style="border-radius: 10px; font-size: 0.75rem; letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.3); transition: background-color 0.2s;">
+        +506 2220-7900
+      </a>
+    </div>
+  </div>
+</section>

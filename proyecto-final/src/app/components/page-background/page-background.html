@@ -1,0 +1,18 @@
+<div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden pe-none user-select-none z-n1">
+  <div class="position-absolute inset-0"
+    [ngStyle]="{ 'background': 'linear-gradient(150deg, #ffffff 0%, ' + startColor() + ' 45%, ' + endColor() + ' 100%)', 'width': '100%', 'height': '100%' }"></div>
+  <div class="position-absolute rounded-circle"
+    style="top: -12rem; right: -12rem; width: 680px; height: 680px; background: radial-gradient(circle, rgba(0,130,193,0.10) 0%, transparent 65%);"></div>
+  <div class="position-absolute rounded-circle"
+    style="bottom: -8rem; left: -8rem; width: 520px; height: 520px; background: radial-gradient(circle, rgba(43,28,90,0.09) 0%, transparent 65%);"></div>
+  <svg class="position-absolute top-0 start-0 w-100 h-100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="pagegrid" width="80" height="80" patternUnits="userSpaceOnUse">
+        <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(0,130,193,0.06)" stroke-width="0.5" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#pagegrid)" />
+  </svg>
+  <div class="position-absolute bottom-0 start-0 end-0"
+    style="height: 12rem; background: linear-gradient(to bottom, transparent, #FFFFFF);"></div>
+</div>

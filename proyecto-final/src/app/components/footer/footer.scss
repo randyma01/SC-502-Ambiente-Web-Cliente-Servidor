@@ -1,0 +1,16 @@
+.footer-nav-link {
+  color: rgba(255, 255, 255, 0.68);
+  transition: color 0.2s ease-in-out;
+  
+  &:hover {
+    color: #FFFFFF !important;
+  }
+}
+
+.footer-contact-link {
+  transition: color 0.2s ease-in-out;
+  
+  &:hover {
+    color: #FFFFFF !important;
+  }
+}

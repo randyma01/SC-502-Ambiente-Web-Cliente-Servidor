@@ -1,0 +1,45 @@
+.hover-border-blue:hover {
+  border-color: var(--blue) !important;
+  color: var(--blue) !important;
+}
+
+.group-hover-btn {
+  &:hover {
+    opacity: 0.9;
+    
+    .animate-arrow {
+      transform: translateX(4px);
+    }
+  }
+  
+  .animate-arrow {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+  }
+}
+
+.icon-more-link {
+  transition: opacity 0.3s ease;
+  
+  i {
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+.p-5:hover .icon-more-link i {
+  transform: translateX(3px);
+}
+
+.partner-name {
+  color: #4B5563;
+}
+
+.py-5:hover .partner-name {
+  color: var(--hover-color) !important;
+}
+
+@media (min-width: 768px) {
+  .border-start-md {
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+}
